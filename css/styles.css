@@ -10938,7 +10938,7 @@ textarea.form-control-lg {
 }
 
 .fs-13 {
-  font-size: calc(1.925rem + 8.1vw) !important;
+  font-size: calc(1.925rem + 5.1vw) !important;
 }
 
 .fst-italic {
@@ -20589,7 +20589,7 @@ textarea.form-control-lg {
     font-size: 6rem !important;
   }
   .fs-13 {
-    font-size: 8rem !important;
+    font-size: 5rem !important;
   }
 }
 @media print {
