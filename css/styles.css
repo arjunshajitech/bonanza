@@ -20932,3 +20932,11 @@ ul {
   color: var(--bs-dark) !important;
   background-color: var(--bs-white) !important;
 }/*# sourceMappingURL=styles.css.map */
+
+
+.name {
+  font-weight: 600;
+  font-size: 20px;
+  padding-left: 5px;
+  letter-spacing: 0.5px;
+}
