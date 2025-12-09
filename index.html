@@ -1457,37 +1457,46 @@
         <div class="d-flex flex-column gap-4">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#aboutus"
+              <a
+                class="nav-link scroll-link py-2 px-3 rounded-pill fw-medium"
+                href="#work"
+                >Houseboats</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link scroll-link py-2 px-3 rounded-pill fw-medium"
+                href="#pricing"
+                >Booking</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link scroll-link py-2 px-3 rounded-pill fw-medium"
+                href="#aboutus"
                 >About Us</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#services"
-                >Services</a
+              <a
+                class="nav-link scroll-link py-2 px-3 rounded-pill fw-medium"
+                href="#questions"
+                >Questions</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#work">Work</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#team">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#pricing"
-                >Pricing</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-dark fw-medium px-2" href="#testimonial"
-                >Awards</a
+              <a
+                class="nav-link scroll-link py-2 px-3 rounded-pill fw-medium"
+                href="#testimonial"
+                >Testimonial</a
               >
             </li>
           </ul>
           <div class="d-flex flex-column">
             <a
-              href="contact.html"
+              href="#whatsappForm"
               class="btn btn-dark px-4 py-2 w-100 justify-content-center"
-              >Contact</a
+              >Book Now</a
             >
           </div>
         </div>
@@ -1549,7 +1558,11 @@
 Please confirm availability.
   `;
 
-        const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+        const url =
+          "https://wa.me/" +
+          phoneNumber +
+          "?text=" +
+          encodeURIComponent(message);
         window.open(url, "_blank");
       }
     </script>
