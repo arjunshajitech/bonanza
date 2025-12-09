@@ -74,7 +74,7 @@
                 </li>
               </ul>
               <div class="d-flex align-items-center">
-                <a href="contact.html" class="btn btn-dark px-4 py-2"
+                <a href="#whatsappForm" class="btn btn-dark px-4 py-2"
                   >Book now</a
                 >
               </div>
@@ -121,7 +121,7 @@
               data-aos-duration="1000"
             >
               <a
-                href="#"
+                href="#whatsappForm"
                 class="btn btn-primary py-md-8 pe-md-14 mx-auto mx-md-0 d-block d-md-flex"
               >
                 <span class="btn-text">Book now</span>
@@ -425,7 +425,7 @@
                             <h2 class="mb-0">
                               ₹15,000<span class="fs-4 text-dark">/day</span>
                             </h2>
-                            <a href="#" class="btn btn-white">
+                            <a href="#whatsappForm" class="btn btn-white">
                               <span class="btn-text">Book Now</span>
                               <iconify-icon
                                 icon="solar:arrow-right-up-linear"
@@ -504,7 +504,7 @@
                             <h2 class="mb-0">
                               ₹22,000<span class="fs-4 text-dark">/day</span>
                             </h2>
-                            <a href="#" class="btn btn-white">
+                            <a href="#whatsappForm" class="btn btn-white">
                               <span class="btn-text">Book Now</span>
                               <iconify-icon
                                 icon="solar:arrow-right-up-linear"
@@ -583,7 +583,7 @@
                             <h2 class="mb-0 text-white">
                               ₹35,000<span class="fs-4 text-white">/day</span>
                             </h2>
-                            <a href="#" class="btn btn-white">
+                            <a href="#whatsappForm" class="btn btn-white">
                               <span class="btn-text">Book Now</span>
                               <iconify-icon
                                 icon="solar:arrow-right-up-linear"
@@ -662,7 +662,7 @@
                             <h2 class="mb-0 text-white">
                               ₹60,000<span class="fs-4 text-white">/day</span>
                             </h2>
-                            <a href="#" class="btn btn-white">
+                            <a href="#whatsappForm" class="btn btn-white">
                               <span class="btn-text">Book Now</span>
                               <iconify-icon
                                 icon="solar:arrow-right-up-linear"
@@ -1174,7 +1174,7 @@
       <section
         class="bg-gradient-shaph position-relative pt-14 pt-md-15 pb-11 pb-lg-12 pb-xl-13"
       >
-        <div class="container position-relative z-3">
+        <div class="container position-relative z-3" id="whatsappForm">
           <div class="d-flex flex-column gap-10 gap-lg-12">
             <div class="row justify-content-center">
               <div class="col-lg-6 col-xl-5">
@@ -1184,88 +1184,113 @@
                   data-aos-delay="100"
                   data-aos-duration="1000"
                 >
-                  Love to hear from you, Get in
-                  <em class="font-instrument">touch</em>
+                  Your Houseboat Experience
+                  <em class="font-instrument">Begins Here</em>
                 </h2>
               </div>
             </div>
             <div class="card">
               <div class="card-body">
-                <form
-                  action="https://formsubmit.co/ajax/bhainirav772@gmail.com"
-                  method="post"
-                >
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <div class="mb-4 mb-lg-10">
-                        <label for="Fname" class="form-label">Your Name</label>
+                <div class="booking-form">
+                  <form id="wform">
+                    <!-- Row 1 -->
+                    <div class="row">
+                      <div class="col-lg-6 mb-3">
+                        <label>Check-in Date *</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="checkin"
+                          required
+                        />
+                      </div>
+
+                      <div class="col-lg-6 mb-3">
+                        <label>Check-out Date *</label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          id="checkout"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="row">
+                      <div class="col-lg-6 mb-3">
+                        <label>Full Name *</label>
                         <input
                           type="text"
-                          name="Fname"
-                          id="Fname"
+                          class="form-control"
+                          id="name"
                           placeholder="Enter your name"
-                          class="form-control"
+                          required
                         />
                       </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="mb-4 mb-lg-10">
-                        <label for="exampleInputEmail1" class="form-label"
-                          >Your Email</label
-                        >
-                        <input
-                          type="email"
-                          class="form-control"
-                          id="exampleInputEmail1"
-                          placeholder="Enter your email"
-                          aria-describedby="emailHelp"
-                        />
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="mb-4 mb-lg-10">
-                        <label for="interested" class="form-label"
-                          >What are you interested in?</label
-                        >
-                        <select class="form-select">
-                          <option value="1">Design & Branding</option>
-                          <option value="2">Ecommerce</option>
-                          <option value="3">Specialist</option>
+
+                      <div class="col-lg-6 mb-3">
+                        <label>Number of Rooms *</label>
+                        <select class="form-select" id="rooms" required>
+                          <option value="">Select rooms</option>
+                          <option>1 Room</option>
+                          <option>2 Rooms</option>
+                          <option>3 Rooms</option>
+                          <option>4 Rooms</option>
+                          <option>5 Rooms</option>
+                          <option>6 Rooms</option>
+                          <option>7 Rooms</option>
+                          <option>8 Rooms</option>
                         </select>
                       </div>
                     </div>
-                    <div class="col-lg-6">
-                      <div class="mb-4 mb-lg-10">
-                        <label for="Projectbudget" class="form-label"
-                          >Project budget</label
-                        >
-                        <select class="form-select">
-                          <option value="1">Select your budget</option>
-                          <option value="2">$10,000</option>
-                          <option value="3">$50,500</option>
+
+                    <!-- Row 3 -->
+                    <div class="row">
+                      <div class="col-lg-6 mb-3">
+                        <label>Number of People *</label>
+                        <select class="form-select" id="people" required>
+                          <option value="">Select people</option>
+                          <option>1 - 2</option>
+                          <option>3 - 5</option>
+                          <option>6 - 9</option>
+                          <option>9+</option>
+                        </select>
+                      </div>
+
+                      <div class="col-lg-6 mb-3">
+                        <label>Select Houseboat *</label>
+                        <select class="form-select" id="boat" required>
+                          <option value="">Choose your houseboat</option>
+                          <option>Luxury</option>
+                          <option>Premium</option>
+                          <option>Standard</option>
                         </select>
                       </div>
                     </div>
-                    <div class="col-12">
-                      <div class="mb-4 mb-lg-10">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea
-                          name="message"
-                          id="message"
-                          class="form-control"
-                          rows="4"
-                        ></textarea>
+
+                    <!-- Row 4 -->
+                    <div class="row">
+                      <div class="col-lg-12 mb-3">
+                        <label>Cruise Type *</label>
+                        <select class="form-select" id="cruise" required>
+                          <option value="">Select cruise type</option>
+                          <option>Day Cruise</option>
+                          <option>Night Stay</option>
+                          <option>Full Day Package</option>
+                        </select>
                       </div>
                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-dark mx-auto">
-                    <span class="btn-text">Let’s Collaborate</span>
-                    <iconify-icon
-                      icon="solar:arrow-right-up-linear"
-                      class="btn-icon bg-white text-dark round-32 rounded-circle hstack justify-content-center fs-6"
-                    ></iconify-icon>
-                  </button>
-                </form>
+
+                    <button
+                      type="button"
+                      class="whatsapp-btn"
+                      onclick="sendWhatsApp()"
+                    >
+                      Book via WhatsApp
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
@@ -1292,7 +1317,7 @@
                       make your stay unforgettable at every moment.
                     </p>
                   </div>
-                  <a href="contact.html" class="btn btn-dark mx-auto">
+                  <a href="#whatsappForm" class="btn btn-dark mx-auto">
                     <span class="btn-text">Book now</span>
                     <iconify-icon
                       icon="solar:arrow-right-up-linear"
@@ -1316,8 +1341,8 @@
               <div class="d-flex flex-column gap-4 me-xl-5">
                 <a href="index.html" class="d-block">
                   <a href="index.html" class="logo">
-                  <p class="mb-0 pt-0 name">BONANZA</p>
-                </a>
+                    <p class="mb-0 pt-0 name">BONANZA</p>
+                  </a>
                 </a>
                 <p class="mb-0">
                   At Bonanza Tours, we don’t just take you on a cruise we craft
@@ -1396,8 +1421,7 @@
     <div class="get-template hstack gap-2">
       <a
         class="bg-primary px-3 py-2 rounded fs-3 fw-semibold text-white"
-        target="_blank"
-        href="https://www.wrappixel.com/templates/"
+        href="#whatsappForm"
         >Book Now</a
       >
       <button
@@ -1477,5 +1501,57 @@
     <script src="js/custom.js"></script>
     <!-- solar icons -->
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script>
+      let userChangedCheckout = false; // Track if user edited checkout manually
+
+      const checkinInput = document.getElementById("checkin");
+      const checkoutInput = document.getElementById("checkout");
+
+      // Auto-open date picker on click (mobile compatible)
+      checkinInput.addEventListener("click", () => {
+        checkinInput.showPicker?.(); // Works in modern browsers
+      });
+
+      // Detect first time date selection
+      checkinInput.addEventListener("change", () => {
+        if (!userChangedCheckout) {
+          checkoutInput.value = checkinInput.value;
+        }
+      });
+
+      // If user manually edits checkout — stop auto-sync
+      checkoutInput.addEventListener("change", () => {
+        userChangedCheckout = true;
+      });
+
+      function sendWhatsApp() {
+        const form = document.getElementById("wform");
+
+        // Validate form
+        if (!form.checkValidity()) {
+          form.reportValidity(); // Browser shows which field is missing
+          return;
+        }
+
+        const phoneNumber = "919747678081";
+
+        let message = `
+  *Houseboat Booking Request*  
+--------------------------------  
+  Name: ${document.getElementById("name").value}  
+  Check-in: ${document.getElementById("checkin").value}  
+  Check-out: ${document.getElementById("checkout").value}  
+  People: ${document.getElementById("people").value}  
+  Rooms: ${document.getElementById("rooms").value}  
+  Houseboat Type: ${document.getElementById("boat").value}  
+  Cruise Type: ${document.getElementById("cruise").value}  
+--------------------------------  
+Please confirm availability.
+  `;
+
+        const url = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+        window.open(url, "_blank");
+      }
+    </script>
   </body>
 </html>

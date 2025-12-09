@@ -20940,3 +20940,44 @@ ul {
   padding-left: 5px;
   letter-spacing: 0.5px;
 }
+
+.booking-form {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .form-control, .form-select {
+    height: 52px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    padding-left: 14px;
+    font-size: 15px;
+  }
+
+  .form-control:focus, .form-select:focus {
+    border-color: #198754;
+    box-shadow: 0 0 3px rgba(0, 128, 0, 0.3);
+  }
+
+  .whatsapp-btn {
+    width: 100%;
+    background: #00c853;
+    border: none;
+    padding: 16px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .whatsapp-btn:hover {
+    background: #00a844;
+  }
+
+  label {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
