@@ -59,6 +59,34 @@ $(function () {
     });
 
 
+    // Smooth Scroll for navigation links
+    document.querySelectorAll('a.scroll-link, a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            
+            // Only handle hash links
+            if (href && href.startsWith('#')) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Calculate offset (header height + some padding)
+                    const headerOffset = 100;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    // Smooth scroll to target
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
     // Scroll
     const sections = document.querySelectorAll("section[id]");
 
@@ -77,10 +105,34 @@ $(function () {
                 scrollY > sectionTop &&
                 scrollY <= sectionTop + sectionHeight
             ) {
-                document.querySelector(".navbar-collapse a[href*=" + sectionId + "]").classList.add("active");
+                const navLink = document.querySelector(".navbar-collapse a[href*=" + sectionId + "]");
+                const offcanvasLink = document.querySelector("#offcanvasHeader a[href*=" + sectionId + "]");
+                if (navLink) navLink.classList.add("active");
+                if (offcanvasLink) offcanvasLink.classList.add("active");
             } else {
-                document.querySelector(".navbar-collapse a[href*=" + sectionId + "]").classList.remove("active");
+                const navLink = document.querySelector(".navbar-collapse a[href*=" + sectionId + "]");
+                const offcanvasLink = document.querySelector("#offcanvasHeader a[href*=" + sectionId + "]");
+                if (navLink) navLink.classList.remove("active");
+                if (offcanvasLink) offcanvasLink.classList.remove("active");
             }
+        });
+    }
+
+    // Close offcanvas menu when navigation link is clicked
+    const offcanvasElement = document.getElementById('offcanvasHeader');
+    if (offcanvasElement) {
+        const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement) || new bootstrap.Offcanvas(offcanvasElement);
+        
+        // Get all navigation links inside the offcanvas
+        const offcanvasLinks = offcanvasElement.querySelectorAll('.nav-link, .btn');
+        
+        offcanvasLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Close the offcanvas after a short delay to allow smooth scrolling
+                setTimeout(() => {
+                    offcanvas.hide();
+                }, 100);
+            });
         });
     }
 
