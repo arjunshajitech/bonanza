@@ -59,6 +59,62 @@ $(function () {
     });
 
 
+    // Scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".navbar-collapse a.scroll-link");
+    const offcanvasLinks = document.querySelectorAll("#offcanvasHeader a.scroll-link");
+    
+    let isScrolling = false;
+    let scrollTimeout;
+
+    window.addEventListener("scroll", navHighlighter);
+
+    function navHighlighter() {
+        // Skip highlighting during programmatic scrolling
+        if (isScrolling) {
+            return;
+        }
+
+        let scrollY = window.pageYOffset;
+        let currentSection = "";
+
+        // Find the current section in view
+        sections.forEach(current => {
+            const sectionHeight = current.offsetHeight;
+            const sectionTop = current.offsetTop - 100;
+            const sectionId = current.getAttribute("id");
+
+            if (
+                scrollY >= sectionTop &&
+                scrollY < sectionTop + sectionHeight
+            ) {
+                currentSection = sectionId;
+            }
+        });
+
+        // Remove active class from all links first
+        navLinks.forEach(link => {
+            link.classList.remove("active");
+        });
+        offcanvasLinks.forEach(link => {
+            link.classList.remove("active");
+        });
+
+        // Add active class to the current section's link
+        if (currentSection) {
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+            });
+            offcanvasLinks.forEach(link => {
+                if (link.getAttribute("href") === "#" + currentSection) {
+                    link.classList.add("active");
+                }
+            });
+        }
+    }
+
     // Smooth Scroll for navigation links
     document.querySelectorAll('a.scroll-link, a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -72,6 +128,33 @@ $(function () {
                 if (targetElement) {
                     e.preventDefault();
                     
+                    // Immediately set active state for clicked link
+                    navLinks.forEach(link => {
+                        link.classList.remove("active");
+                    });
+                    offcanvasLinks.forEach(link => {
+                        link.classList.remove("active");
+                    });
+                    this.classList.add("active");
+                    
+                    // Find and activate corresponding link in other menu
+                    if (this.closest('.navbar-collapse')) {
+                        offcanvasLinks.forEach(link => {
+                            if (link.getAttribute("href") === href) {
+                                link.classList.add("active");
+                            }
+                        });
+                    } else if (this.closest('#offcanvasHeader')) {
+                        navLinks.forEach(link => {
+                            if (link.getAttribute("href") === href) {
+                                link.classList.add("active");
+                            }
+                        });
+                    }
+                    
+                    // Set scrolling flag
+                    isScrolling = true;
+                    
                     // Calculate offset (header height + some padding)
                     const headerOffset = 100;
                     const elementPosition = targetElement.getBoundingClientRect().top;
@@ -82,41 +165,19 @@ $(function () {
                         top: offsetPosition,
                         behavior: 'smooth'
                     });
+                    
+                    // Clear any existing timeout
+                    clearTimeout(scrollTimeout);
+                    
+                    // Re-enable highlighting after scroll completes (smooth scroll takes ~500-1000ms)
+                    scrollTimeout = setTimeout(() => {
+                        isScrolling = false;
+                        navHighlighter(); // Update highlighting based on final position
+                    }, 1000);
                 }
             }
         });
     });
-
-    // Scroll
-    const sections = document.querySelectorAll("section[id]");
-
-    window.addEventListener("scroll", navHighlighter);
-
-    function navHighlighter() {
-
-        let scrollY = window.pageYOffset;
-
-        sections.forEach(current => {
-            const sectionHeight = current.offsetHeight;
-            const sectionTop = current.offsetTop - 100;
-            sectionId = current.getAttribute("id");
-
-            if (
-                scrollY > sectionTop &&
-                scrollY <= sectionTop + sectionHeight
-            ) {
-                const navLink = document.querySelector(".navbar-collapse a[href*=" + sectionId + "]");
-                const offcanvasLink = document.querySelector("#offcanvasHeader a[href*=" + sectionId + "]");
-                if (navLink) navLink.classList.add("active");
-                if (offcanvasLink) offcanvasLink.classList.add("active");
-            } else {
-                const navLink = document.querySelector(".navbar-collapse a[href*=" + sectionId + "]");
-                const offcanvasLink = document.querySelector("#offcanvasHeader a[href*=" + sectionId + "]");
-                if (navLink) navLink.classList.remove("active");
-                if (offcanvasLink) offcanvasLink.classList.remove("active");
-            }
-        });
-    }
 
     // Close offcanvas menu when navigation link is clicked
     const offcanvasElement = document.getElementById('offcanvasHeader');
